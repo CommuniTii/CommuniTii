@@ -1,7 +1,23 @@
 {
-  "name": "api",
+  "name": "@communitii/api",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "./build/main.js",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "i": "lerna add --scope=@communitii/api",
+    "dev": "backpack",
+    "build": "backpack build",
+    "prerestart": "rimraf build && yarn build",
+    "start": "node ."
+  },
+  "devDependencies": {
+    "backpack-core": "^0.8.2",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.2.0",
+    "express": "^4.16.4",
+    "graphql": "^14.0.2"
+  }
 }
