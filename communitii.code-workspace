@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "apps/api"
+    },
+    {
+      "path": "apps/web"
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "prettier.eslintIntegration": true,
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    }
+  }
+}
