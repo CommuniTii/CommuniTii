@@ -1,3 +1,5 @@
+const Dotenv = require("dotenv-webpack")
+
 const graphqlLoaderRule = {
   test: /\.(graphql|gql)$/,
   exclude: /node_modules/,
@@ -13,7 +15,10 @@ module.exports = {
     config.entry.main = ["./index.js"]
     // load .graphql files
     config.module.rules.push(graphqlLoaderRule)
-
+    // allow loading .env files
+    // TODO: allow loading different .env files based on env
+    config.plugins.push(new Dotenv())
+    // console.log(config.plugins)
     return config
   }
 }
