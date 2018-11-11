@@ -1,13 +1,13 @@
 import express from "express"
 import { ApolloServer } from "apollo-server-express"
 
-import initContext from "./lib/initContext"
-import initSchema from "./lib/initSchema"
+import getContext from "./lib/getContext"
+import getSchema from "./lib/getSchema"
 
 const initApp = async () => {
   const server = new ApolloServer({
-    schema: initSchema(),
-    context: async req => initContext(req)
+    schema: getSchema(),
+    context: async req => getContext(req)
   })
 
   const app = express()
