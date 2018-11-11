@@ -1,22 +1,14 @@
 import express from "express"
 import { ApolloServer } from "apollo-server-express"
 
-import initMongo from "./lib/initMongo"
-import typeDefs from "./schemas"
-import resolvers from "./resolvers"
+import initContext from "./lib/initContext"
+import initSchema from "./lib/initSchema"
 
 const initApp = async () => {
-  const mongoUrl = `mongodb://${process.env.DB_USERNAME}:${
-    process.env.DB_PASSWORD
-  }@${process.env.DB_URL}`
-
-  const mongo = await initMongo(mongoUrl)
-
-  const context = {
-    ...mongo
-  }
-
-  const server = new ApolloServer({ typeDefs, resolvers, context })
+  const server = new ApolloServer({
+    schema: initSchema(),
+    context: async req => initContext(req)
+  })
 
   const app = express()
   server.applyMiddleware({ app })
@@ -26,4 +18,8 @@ const initApp = async () => {
   )
 }
 
-initApp()
+try {
+  initApp()
+} catch (e) {
+  console.error(e.message, "🔥")
+}
