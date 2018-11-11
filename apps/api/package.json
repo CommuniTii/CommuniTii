@@ -18,9 +18,11 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
+    "apollo-connector-mongodb": "^2.0.3",
     "apollo-server-express": "^2.2.0",
     "express": "^4.16.4",
     "graphql": "^14.0.2",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "lru-cache": "^4.1.3"
   }
 }
