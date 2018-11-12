@@ -1,32 +1,25 @@
 import { AuthenticationError } from "apollo-server"
-import { find } from "lodash"
 import { sign } from "jwt-then"
-import bcrypt from "bcrypt"
-
-const users = [
-  {
-    id: "123fdf2",
-    fName: "John",
-    lName: "Lewis",
-    userName: "jlow",
-    email: "jlow@gmail.com",
-    isStudent: true,
-    schoolName: "Hunter College"
-  }
-]
+import { hash, compare } from "bcrypt"
 
 const JWT_SECRET = process.env.JWT_SECRET
 
 export default {
   Query: {},
+  // TODO: Refactor common actions into User models
+  // TODO: Refactor signin & signup mutation to return AuthTokens type which will contain tradiition similar to traditional JWT auth response
   Mutation: {
-    signIn: async (_, { userName, password }, context) => {
-      const user = find(users, { userName })
+    signIn: async (_, { userName, password }, { collections }) => {
+      const user = await collections.users.findOne({ userName })
+
       if (user) {
-        const { id, email } = user
-        const token = await sign({ id, userName, email }, JWT_SECRET)
-        return token
+        const { _id: id, email, password: hashedPassword } = user
+        const validPassword = await compare(password, hashedPassword)
+
+        if (validPassword)
+          return sign({ id, userName, email }, process.env.JWT_SECRET)
       }
+
       throw new AuthenticationError("Invalid Credentials")
     },
     signUp: async (_, args, { collections, db }) => {
