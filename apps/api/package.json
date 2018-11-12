@@ -21,6 +21,7 @@
     "apollo-connector-mongodb": "^2.0.3",
     "apollo-server": "^2.2.0",
     "apollo-server-express": "^2.2.0",
+    "bcrypt": "^3.0.2",
     "express": "^4.16.4",
     "graphql": "^14.0.2",
     "graphql-middleware": "^2.0.2",

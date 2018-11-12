@@ -1,6 +1,7 @@
 import { AuthenticationError } from "apollo-server"
 import { find } from "lodash"
 import { sign } from "jwt-then"
+import bcrypt from "bcrypt"
 
 const users = [
   {
@@ -14,6 +15,8 @@ const users = [
   }
 ]
 
+const JWT_SECRET = process.env.JWT_SECRET
+
 export default {
   Query: {},
   Mutation: {
@@ -21,10 +24,18 @@ export default {
       const user = find(users, { userName })
       if (user) {
         const { id, email } = user
-        const token = await sign({ id, userName, email }, "234ejh23g4h324jhb")
+        const token = await sign({ id, userName, email }, JWT_SECRET)
         return token
       }
       throw new AuthenticationError("Invalid Credentials")
+    },
+    signUp: async (_, args, { collections, db }) => {
+      const { password, ...userInfo } = args
+      const user = { ...userInfo, password: await bcrypt.hash(password, 10) }
+      await collections.users.insertOne(user)
+      const { _id: id, userName, email } = user
+      const token = await sign({ id, userName, email }, JWT_SECRET)
+      return token
     }
   },
   User: {

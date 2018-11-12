@@ -3,11 +3,18 @@ import { ApolloServer } from "apollo-server-express"
 
 import getContext from "./lib/getContext"
 import getSchema from "./lib/getSchema"
+import initMongo from "./lib/initMongo"
 
 const initApp = async () => {
+  const mongoUrl = `mongodb://${process.env.DB_USERNAME}:${
+    process.env.DB_PASSWORD
+  }@${process.env.DB_URL}`
+
+  const mongo = await initMongo(mongoUrl)
+
   const server = new ApolloServer({
     schema: getSchema(),
-    context: async req => getContext(req)
+    context: async req => getContext(req, mongo)
   })
 
   const app = express()

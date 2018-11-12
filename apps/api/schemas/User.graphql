@@ -7,15 +7,15 @@
 
 extend type Mutation {
   signIn(userName: String!, password: String!): String! # return JWT token after successful signin
-  # signUp(
-  #   fName: String!
-  #   lName: String!
-  #   userName: String!
-  #   email: String!
-  #   password: String!
-  #   isStudent: Boolean!
-  #   schoolName: String
-  # ): String!
+  signUp(
+    fName: String!
+    lName: String!
+    userName: String!
+    email: String!
+    password: String!
+    isStudent: Boolean!
+    schoolName: String
+  ): String!
   # signOut(userName: String): Boolean!
   # changePassword(
   #   userId: String!
@@ -27,7 +27,7 @@ extend type Mutation {
 }
 
 # unexposed fields
-# password
+# passwordHash
 # passwordResetToken
 type User {
   id: ID!

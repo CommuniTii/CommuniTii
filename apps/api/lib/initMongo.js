@@ -10,7 +10,9 @@ const initCollections = async db => {
 }
 
 export default async url => {
-  const db = await new MongoConnector(url)
+  console.log(url)
+  const db = new MongoConnector(url)
+  await db.connect()
 
   const collections = await initCollections(db)
 
