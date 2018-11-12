@@ -1,4 +1,6 @@
 import { AuthenticationError } from "apollo-server"
+import { find } from "lodash"
+import { sign } from "jwt-then"
 
 const users = [
   {
@@ -15,9 +17,13 @@ const users = [
 export default {
   Query: {},
   Mutation: {
-    signIn: (_, { userName, password }, context) => {
-      const user = users.filter(user => user.userName === userName)
-      if (user[0]) return "asdasdasdsad"
+    signIn: async (_, { userName, password }, context) => {
+      const user = find(users, { userName })
+      if (user) {
+        const { id, email } = user
+        const token = await sign({ id, userName, email }, "234ejh23g4h324jhb")
+        return token
+      }
       throw new AuthenticationError("Invalid Credentials")
     }
   },
