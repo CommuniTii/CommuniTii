@@ -2,8 +2,6 @@ import { AuthenticationError } from "apollo-server"
 import { sign } from "jwt-then"
 import { hash, compare } from "bcrypt"
 
-const JWT_SECRET = process.env.JWT_SECRET
-
 export default {
   Query: {},
   // TODO: Refactor common actions into User models
@@ -22,13 +20,13 @@ export default {
 
       throw new AuthenticationError("Invalid Credentials")
     },
-    signUp: async (_, args, { collections, db }) => {
-      const { password, ...userInfo } = args
-      const user = { ...userInfo, password: await bcrypt.hash(password, 10) }
+    signUp: async (_, { password, ...userInfo }, { collections }) => {
+      // TODO: Add check to see if user exists already
+      const user = { ...userInfo, password: await hash(password, 10) }
       await collections.users.insertOne(user)
+
       const { _id: id, userName, email } = user
-      const token = await sign({ id, userName, email }, JWT_SECRET)
-      return token
+      return sign({ id, userName, email }, process.env.JWT_SECRET)
     }
   },
   User: {
