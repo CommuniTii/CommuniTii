@@ -16,12 +16,14 @@ extend type Mutation {
   #   isStudent: Boolean!
   #   schoolName: String
   # ): String!
+  # signOut(userName: String): Boolean!
   # changePassword(
   #   userId: String!
   #   oldPassword: String!
   #   newPassword: String!
   # ): Boolean!
-  # resetPassword(resetToken: String!, newPassword: String!)
+  # resetPassword(resetToken: String!, newPassword: String!): Boolean!
+  # refreshAccessToken(refreshToken: String!)
 }
 
 # unexposed fields
