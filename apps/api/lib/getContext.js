@@ -1,6 +1,6 @@
-export default async (req, mongo) => {
+export default async (req, models) => {
   return {
-    ...mongo,
-    req
+    req,
+    models
   }
 }

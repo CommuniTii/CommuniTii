@@ -4,6 +4,7 @@ import { ApolloServer } from "apollo-server-express"
 import getContext from "./lib/getContext"
 import getSchema from "./lib/getSchema"
 import initMongo from "./lib/initMongo"
+import getModels from "./models"
 
 const initApp = async () => {
   const mongoUrl = `mongodb://${process.env.DB_USERNAME}:${
@@ -11,10 +12,11 @@ const initApp = async () => {
   }@${process.env.DB_URL}`
 
   const mongo = await initMongo(mongoUrl)
+  const models = getModels(mongo)
 
   const server = new ApolloServer({
     schema: getSchema(),
-    context: async req => getContext(req, mongo)
+    context: async req => getContext(req, models)
   })
 
   const app = express()
