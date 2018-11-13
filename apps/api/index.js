@@ -13,9 +13,10 @@ const initApp = async () => {
 
   const mongo = await initMongo(mongoUrl)
   const models = getModels(mongo)
+  const schema = getSchema()
 
   const server = new ApolloServer({
-    schema: getSchema(),
+    schema,
     context: async req => getContext(req, models)
   })
 
