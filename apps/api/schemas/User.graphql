@@ -2,7 +2,7 @@
 extend type Query {
   me: User!
   # isValidPasswordResetToken(token: String!): Boolean!
-  # isUniqueUsername(userName: String!): Boolean!
+  isUniqueUserName(userName: String!): Boolean!
 }
 
 extend type Mutation {

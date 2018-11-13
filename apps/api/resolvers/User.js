@@ -1,9 +1,11 @@
 export default {
   Query: {
-    me: (_, __, { user }) => {
-      console.log(user)
-      return user
-    }
+    me: (_, __, { user }) => user,
+    isUniqueUserName: async (_, { userName }, { models: { users } }) =>
+      users
+        .findUserByUserName(userName)
+        .then(user => false)
+        .catch(e => true)
   },
   // TODO: Refactor signin & signup mutation to return AuthTokens type which will contain tradiition similar to traditional JWT auth response
   Mutation: {
