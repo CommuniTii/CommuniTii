@@ -1,9 +1,12 @@
 import { hash, compare } from "bcrypt"
 import { sign } from "jwt-then"
 import { AuthenticationError } from "apollo-server"
+import { ObjectId } from "mongodb"
 
 export default ({ users }) => {
   const findUserByUserName = async userName => users.findOne({ userName })
+
+  const findById = async id => users.findOne({ _id: ObjectId(id) })
 
   const collection = () => users
 
@@ -38,6 +41,7 @@ export default ({ users }) => {
   return Object.freeze({
     collection,
     findUserByUserName,
+    findById,
     addUser,
     signUp,
     signIn

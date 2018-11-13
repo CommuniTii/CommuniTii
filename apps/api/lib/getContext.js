@@ -1,6 +1,9 @@
+import { getUser } from "../utils"
+
 export default async (req, models) => {
   return {
     req,
-    models
+    models,
+    user: await getUser(req, models)
   }
 }
