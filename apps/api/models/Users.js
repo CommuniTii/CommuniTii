@@ -3,6 +3,11 @@ import { sign } from "jwt-then"
 import { AuthenticationError } from "apollo-server"
 import { ObjectId } from "mongodb"
 
+// monkey patch to allow ObjectId to be used w/ graphql ID type
+ObjectId.prototype.valueOf = function() {
+  return this.toString()
+}
+
 export default ({ users }) => {
   const findUserByUserName = async userName => users.findOne({ userName })
 

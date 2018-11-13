@@ -1,9 +1,9 @@
 # TODO: Split up all authentication specific query/mutations into seperate schema
-# extend type Query {
-#   me: User!
-#   isValidPasswordResetToken(token: String!): Boolean!
-#   isUniqueUsername(userName: String!): Boolean!
-# }
+extend type Query {
+  me: User!
+  # isValidPasswordResetToken(token: String!): Boolean!
+  # isUniqueUsername(userName: String!): Boolean!
+}
 
 extend type Mutation {
   signIn(userName: String!, password: String!): String! # return JWT token after successful signin
@@ -16,7 +16,6 @@ extend type Mutation {
     isStudent: Boolean!
     schoolName: String
   ): String!
-  # signOut(userName: String): Boolean!
   # changePassword(
   #   userId: String!
   #   oldPassword: String!
