@@ -13,7 +13,7 @@ export default ({ users }) => {
   }
 
   const signUp = async ({ password, ...userInfo }) => {
-    // TODO: Add check to see if user exists already
+    // TODO: Add check to see if userName & email exists already
     const user = { ...userInfo, password: await hash(password, 10) }
     await addUser(user)
 
