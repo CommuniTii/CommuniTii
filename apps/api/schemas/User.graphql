@@ -1,6 +1,8 @@
 # TODO: Split up all authentication specific query/mutations into seperate schema
+directive @isAuthenticated on FIELD | FIELD_DEFINITION
+
 extend type Query {
-  me: User!
+  me: User! @isAuthenticated
   # isValidPasswordResetToken(token: String!): Boolean!
   isUniqueUserName(userName: String!): Boolean!
 }
