@@ -1,10 +1,10 @@
 import express from "express"
 import { ApolloServer } from "apollo-server-express"
-
 import getContext from "./lib/getContext"
 import getSchema from "./lib/getSchema"
 import initMongo from "./lib/initMongo"
 import getModels from "./models"
+const path = require("path")
 
 const initApp = async () => {
   const mongoUrl = `mongodb://${process.env.DB_USERNAME}:${
@@ -21,10 +21,21 @@ const initApp = async () => {
   })
 
   const app = express()
-  server.applyMiddleware({ app })
 
+  //Comment this out + app.listen if you want to go back to graphql tests
+  app.get("/", function(req, res) {
+    res.sendFile("testy.html", {
+      root: path.join(__dirname, "../", "web/pages/")
+    })
+  })
+  server.applyMiddleware({ app })
+  /*
   app.listen({ port: 4000 }, () =>
     console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+  )
+   */
+  app.listen({ port: 4000 }, () =>
+    console.log(`🚀 Server ready at http://localhost:4000${server}`)
   )
 }
 

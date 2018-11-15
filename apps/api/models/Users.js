@@ -14,12 +14,10 @@ export default ({ users }) => {
   const findById = async id => users.findOne({ _id: ObjectId(id) })
 
   const collection = () => users
-
   const addUser = async userInfo => {
-    // TODO: Add checks on user info and return appropriate errors
+    // TODO: Add checks on user info and return appropriate error
     return users.insertOne(userInfo)
   }
-
   const signUp = async ({ password, ...userInfo }) => {
     // TODO: Add check to see if userName & email exists already
     const user = { ...userInfo, password: await hash(password, 10) }
