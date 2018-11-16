@@ -4,10 +4,10 @@ export default {
     isUniqueUserName: async (_, { userName }, { models: { users } }) =>
       users
         .findUserByUserName(userName)
-        .then(user => false)
-        .catch(e => true)
+        .then(_ => false)
+        .catch(_ => true)
   },
-  // TODO: Refactor signin & signup mutation to return AuthTokens type which will contain tradiition similar to traditional JWT auth response
+  // TODO: Refactor signin & signup mutation to return AuthTokens type which will structured similar to traditional JWT auth response
   Mutation: {
     signIn: async (_, args, { models: { users } }) => users.signIn(args),
     signUp: async (_, args, { models: { users } }) => users.signIn(args)
