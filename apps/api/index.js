@@ -1,17 +1,9 @@
 import initBootstrap from "./lib/initBootstrap"
 
-const initApp = async () => {
-  const { app, server } = await initBootstrap()
-
-  app.listen({ port: 4000 }, () =>
-    console.log(
-      `🚀  Server ready at http://localhost:4000${server.graphqlPath}`
+initBootstrap()
+  .then(({ app, server: { graphqlPath } }) =>
+    app.listen({ port: process.env.PORT }, () =>
+      console.log(`🚀  Server ready at http://localhost:4000${graphqlPath}`)
     )
   )
-}
-
-try {
-  initApp()
-} catch (e) {
-  console.error("🔥 ", e.message)
-}
+  .catch(e => console.error("🔥 ", e.message))

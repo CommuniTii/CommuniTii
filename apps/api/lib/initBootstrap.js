@@ -13,10 +13,9 @@ export default async () => {
 
   const mongo = await initMongo(mongoUrl)
   const models = getModels(mongo)
-  const schema = getSchema()
 
   const server = new ApolloServer({
-    schema,
+    schema: getSchema(),
     context: async req => getContext(req, models)
   })
 
