@@ -16,7 +16,7 @@ export default async () => {
 
   const server = new ApolloServer({
     schema: getSchema(),
-    context: async req => getContext(req, models)
+    context: async ({ req }) => getContext(req, models)
   })
 
   const app = express()

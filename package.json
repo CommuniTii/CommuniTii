@@ -20,6 +20,6 @@
     "i": "yarn && lerna bootstrap",
     "dev:api": "cd apps/api && yarn dev",
     "dev:web": "cd apps/web && yarn dev",
-    "start": "concurrently \"yarn dev:api\" \"yarn dev:web\""
+    "dev": "concurrently \"yarn dev:api\" \"yarn dev:web\""
   }
 }
