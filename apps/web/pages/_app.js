@@ -4,10 +4,12 @@ import Head from "next/head"
 import { MuiThemeProvider } from "@material-ui/core/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import JssProvider from "react-jss/lib/JssProvider"
+import { ApolloProvider } from "react-apollo"
 
 import getPageContext from "../lib/getPageContext"
+import withApollo from "../lib/withApollo"
 
-class MyApp extends App {
+class AppRoot extends App {
   constructor(props) {
     super(props)
     this.pageContext = getPageContext()
@@ -22,7 +24,7 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps, apolloClient } = this.props
     return (
       <Container>
         <Head>
@@ -41,9 +43,11 @@ class MyApp extends App {
           >
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
-            {/* Pass pageContext to the _document though the renderPage enhancer
+            <ApolloProvider client={apolloClient}>
+              {/* Pass pageContext to the _document though the renderPage enhancer
                 to render collected styles on server side. */}
-            <Component pageContext={this.pageContext} {...pageProps} />
+              <Component pageContext={this.pageContext} {...pageProps} />
+            </ApolloProvider>
           </MuiThemeProvider>
         </JssProvider>
       </Container>
@@ -51,4 +55,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp
+export default withApollo(AppRoot)
