@@ -18,5 +18,9 @@
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-jss": "^8.6.1"
+  "devDependencies": {
+    "dotenv-load": "^1.1.0",
+    "next-compose-plugins": "^2.1.1",
+    "next-env": "^1.0.1"
   }
 }
