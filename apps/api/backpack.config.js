@@ -1,10 +1,19 @@
 const Dotenv = require("dotenv-webpack")
+const { resolve } = require("path")
 
 const graphqlLoaderRule = {
   test: /\.(graphql|gql)$/,
   exclude: /node_modules/,
   loader: "graphql-tag/loader"
 }
+
+const babelLoaderRule = curr => ({
+  ...curr,
+  exclude: abs => !(abs.indexOf("@communitii") > -1),
+  options: {
+    configFile: resolve("babel.config.js")
+  }
+})
 
 module.exports = {
   webpack: (config, options, webpack) => {
@@ -18,7 +27,8 @@ module.exports = {
     // allow loading .env files
     // TODO: allow loading different .env files based on env
     config.plugins.push(new Dotenv())
-    // console.log(config.plugins)
+    config.module.rules[0] = babelLoaderRule(config.module.rules[0])
+    console.log(config.module.rules)
     return config
   }
 }
