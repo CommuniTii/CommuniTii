@@ -1,5 +1,5 @@
 import React from "react"
-import { Flex, Box, Text, Image } from "rebass"
+import { Flex, Text, Image } from "rebass"
 import styled from "styled-components"
 
 import GlobalStyle from "../lib/GlobalStyle"
@@ -9,7 +9,7 @@ const Container = styled.div`
 `
 const LandingPage = () => (
   <>
-    <GlobalStyle />>
+    <GlobalStyle />
     <Container>
       <Flex
         py={[1, 3, 5]}
@@ -25,7 +25,7 @@ const LandingPage = () => (
         <Text fontSize={[3, 4, 5]}>Coming Soon...</Text>
 
         <Text fontSize={[1]}>
-          Got question? Email us hello@communitiiapp.com
+          Got questions? Email us hello@communitiiapp.com
         </Text>
       </Flex>
     </Container>
