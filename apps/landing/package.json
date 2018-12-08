@@ -12,7 +12,11 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p $PORT"
+    "start": "next start",
+    "preexport": "yarn build",
+    "export": "next export",
+    "deploy": "surge out/ communitiiapp.com",
+    "predeploy": "yarn export && cp CNAME out/CNAME",
     "i": "yarn add --scope=@communitii/landing"
   },
   "devDependencies": {
