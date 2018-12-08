@@ -1,16 +1,22 @@
 {
-  "name": "landing",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "@communitii/landing",
+  "version": "0.0.0",
   "license": "MIT",
   "dependencies": {
-    "next": "^7.0.3-alpha.5",
+    "next": "^7.0.2",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "rebass": "^3.0.0-12",
+    "styled-components": "^4.1.2"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT"
+    "i": "yarn add --scope=@communitii/landing"
+  },
+  "devDependencies": {
+    "@types/rebass": "^0.3.2",
+    "surge": "^0.20.1"
   }
 }
