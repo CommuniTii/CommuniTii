@@ -3,9 +3,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^3.7.1",
+    "@material-ui/icons": "^3.0.1",
+    "nes-react": "^1.0.1",
     "next": "^7.0.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-jss": "^10.0.0-alpha.3",
     "rebass": "^3.0.0-12",
     "styled-components": "^4.1.2"
   },
@@ -21,6 +25,7 @@
   },
   "devDependencies": {
     "@types/rebass": "^0.3.2",
+    "babel-plugin-styled-components": "^1.9.3",
     "surge": "^0.20.1"
   }
 }
