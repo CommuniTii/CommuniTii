@@ -1,5 +1,6 @@
 import React from "react"
-import { Typography } from "@material-ui/core"
+import { object } from "prop-types"
+import { Typography, Button } from "@material-ui/core"
 import { unstable_Box as Box } from "@material-ui/core/Box"
 import { withStyles } from "@material-ui/core/styles"
 
@@ -25,6 +26,13 @@ const styles = theme => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat"
+  },
+  h5: {
+    marginBottom: theme.spacing.unit * 4,
+    marginTop: theme.spacing.unit * 4,
+    [theme.breakpoints.up("sm")]: {
+      marginTop: theme.spacing.unit * 10
+    }
   }
 })
 
@@ -37,10 +45,33 @@ const Hero = ({ classes }) => (
       className={classes.root}
       display="flex"
       alignItems="center"
+      flexDirection="column"
+      justifyContent="center"
     >
-      <Typography variant="h3">Hello</Typography>
+      <Typography color="inherit" align="center" variant="h2" marked="center">
+        The Game of Life is better Together!
+      </Typography>
+
+      <Typography
+        color="inherit"
+        align="center"
+        variant="h5"
+        className={classes.h5}
+      >
+        A gamified social platform that enhances and encourages IRL (in real
+        life) experiences through organic communities and fun interactive
+        activities called quests.
+      </Typography>
+
+      <Button color="secondary" variant="contained" size="large">
+        Stay in Touch!
+      </Button>
     </Box>
   </Box>
 )
+
+Hero.propTypes = {
+  classes: object.isRequired
+}
 
 export default withStyles(styles)(Hero)
