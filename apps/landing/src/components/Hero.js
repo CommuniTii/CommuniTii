@@ -48,19 +48,19 @@ const Hero = ({ classes }) => (
       flexDirection="column"
       justifyContent="center"
     >
-      <Typography color="inherit" align="center" variant="h2" marked="center">
+      <Typography color="inherit" align="center" variant="h3" marked="center">
         The Game of Life is better Together!
       </Typography>
 
       <Typography
         color="inherit"
         align="center"
-        variant="h5"
+        variant="h6"
         className={classes.h5}
       >
-        A gamified social platform that enhances and encourages IRL (in real
-        life) experiences through organic communities and fun interactive
-        activities called quests.
+        CommuniTii is a gamified social platform that enhances and encourages
+        IRL (in real life) experiences through organic communities and fun
+        interactive activities called quests.
       </Typography>
 
       <Button color="secondary" variant="contained" size="large">
