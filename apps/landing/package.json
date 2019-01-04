@@ -8,6 +8,7 @@
     "@material-ui/styles": "^3.0.0-alpha.6",
     "@wapps/gatsby-plugin-fonts": "^1.0.2",
     "@wapps/gatsby-plugin-material-ui": "^1.1.0",
+    "classnames": "^2.2.6",
     "gatsby": "^2.0.83",
     "gatsby-plugin-react-helmet": "^3.0.5",
     "gatsby-plugin-typescript": "^2.0.3",

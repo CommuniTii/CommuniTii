@@ -1,18 +1,15 @@
 import React from "react"
 
 import Layout from "../components/Layout"
-import Hero from "../components/Hero"
 import TopBar from "../components/TopBar"
+import Footer from "../components/Footer"
+import Main from "../components/Main"
 
 const LandingPage = () => (
   <Layout>
-    <header>
-      <TopBar />
-    </header>
-    <main>
-      <Hero />
-    </main>
-    <footer>Our footer</footer>
+    <TopBar />
+    <Main />
+    <Footer />
   </Layout>
 )
 
