@@ -8,10 +8,18 @@ import {
   IconButton
 } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
+import { unstable_Box as Box } from "@material-ui/core/Box"
+
+import logoImg from "../images/logo.png"
 
 const styles = {
   grow: {
     flexGrow: 1
+  },
+  logo: {
+    objectFit: "cover",
+    width: "30px",
+    height: "30px"
   }
 }
 
@@ -27,11 +35,19 @@ const SocialBtns = () =>
   ))
 
 const TopBar = ({ classes }) => (
-  <AppBar position="static" color="primary" className={classes.grow}>
+  <AppBar
+    position="static"
+    color="default"
+    className={classes.grow}
+    component="header"
+  >
     <Toolbar>
-      <Typography variant="h6" color="inherit" className={classes.grow}>
-        CommuniTii
-      </Typography>
+      <Box display="flex" className={classes.grow}>
+        <img src={logoImg} alt="CommuniTii logo" className={classes.logo} />
+        <Typography variant="h6" color="inherit">
+          CommuniTii
+        </Typography>
+      </Box>
 
       <SocialBtns />
     </Toolbar>
