@@ -1,10 +1,16 @@
 import React from "react"
-import { Typography } from "@material-ui/core"
+
+import Layout from "../components/Layout"
+import Hero from "../components/Hero"
 
 const LandingPage = () => (
-  <>
-    <Typography variant="h1">Hello CommuniTii</Typography>
-  </>
+  <Layout>
+    <header>NavBar</header>
+    <main>
+      <Hero />
+    </main>
+    <footer>Our footer</footer>
+  </Layout>
 )
 
 export default LandingPage

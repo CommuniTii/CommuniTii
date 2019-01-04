@@ -1,11 +1,26 @@
 module.exports = {
+  siteMetadata: {
+    title: "CommuniTii"
+  },
   plugins: [
     {
       resolve: `@wapps/gatsby-plugin-material-ui`,
       options: {
         theme: {
-          primary: "blue",
-          secondary: "pink",
+          palette: {
+            primary: {
+              light: "#80d6ff",
+              main: "#42a5f5",
+              dark: "#0077c2",
+              contrastText: "#fff"
+            },
+            secondary: {
+              light: "#ff6090",
+              main: "#e91e63",
+              dark: "#b0003a",
+              contrastText: "#000"
+            }
+          },
           typography: {
             useNextVariants: true
           }
