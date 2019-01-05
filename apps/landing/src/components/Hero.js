@@ -3,9 +3,10 @@ import { object } from "prop-types"
 import { Typography, Button } from "@material-ui/core"
 import { unstable_Box as Box } from "@material-ui/core/Box"
 import { withStyles } from "@material-ui/core/styles"
+import heroBgImg from "../images/heroBgImg.png"
 
-const backgroundImage =
-  "https://images.unsplash.com/photo-1520492943297-59dc5f2d0fe6?auto=format&fit=crop&w=1400&q=80"
+// const backgroundImage =
+//   "https://images.unsplash.com/photo-1520492943297-59dc5f2d0fe6?auto=format&fit=crop&w=1400&q=80"
 
 const styles = theme => ({
   root: {
@@ -21,7 +22,7 @@ const styles = theme => ({
     }
   },
   background: {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBgImg})`,
     backgroundColor: "#7fc7d9", // Average color of the background image.
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -38,7 +39,7 @@ const styles = theme => ({
 
 const Hero = ({ classes }) => (
   <Box className={classes.background}>
-    <img style={{ display: "none" }} src={backgroundImage} alt="" />
+    <img style={{ display: "none" }} src={heroBgImg} alt="" />
 
     <Box
       component="section"
@@ -52,16 +53,18 @@ const Hero = ({ classes }) => (
         The Game of Life is better Together!
       </Typography>
 
-      <Typography
+      <Box
+        component={Typography}
         color="inherit"
         align="center"
         variant="h6"
         className={classes.h5}
+        mx={20}
       >
         CommuniTii is a gamified social platform that enhances and encourages
         IRL (in real life) experiences through organic communities and fun
         interactive activities called quests.
-      </Typography>
+      </Box>
 
       <Button color="secondary" variant="contained" size="large">
         Stay in Touch!
