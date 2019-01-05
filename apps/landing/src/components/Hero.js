@@ -27,13 +27,6 @@ const styles = theme => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat"
-  },
-  h5: {
-    marginBottom: theme.spacing.unit * 4,
-    marginTop: theme.spacing.unit * 4,
-    [theme.breakpoints.up("sm")]: {
-      marginTop: theme.spacing.unit * 10
-    }
   }
 })
 
@@ -49,22 +42,31 @@ const Hero = ({ classes }) => (
       flexDirection="column"
       justifyContent="center"
     >
-      <Typography color="inherit" align="center" variant="h3" marked="center">
-        The Game of Life is better Together!
-      </Typography>
-
-      <Box
-        component={Typography}
+      <Typography
         color="inherit"
         align="center"
-        variant="h6"
-        className={classes.h5}
-        mx={20}
+        marked="center"
+        component="div"
       >
-        CommuniTii is a gamified social platform that enhances and encourages
-        IRL (in real life) experiences through organic communities and fun
-        interactive activities called quests.
-      </Box>
+        <Box
+          fontSize={{ xs: 35, md: 45 }}
+          mx={{ xs: 5, sm: 15, md: 20, lg: 30 }}
+          fontWeight={700}
+        >
+          The Game of Life is better Together!
+        </Box>
+
+        <Box
+          fontSize={{ xs: 18, md: 22 }}
+          mx={{ xs: 5, sm: 15, md: 20, lg: 30 }}
+          my={{ xs: 5, sm: 10, md: 15 }}
+          fontWeight={500}
+        >
+          CommuniTii is a gamified social platform that enhances and encourages
+          IRL (in real life) experiences through organic communities and fun
+          interactive activities called quests.
+        </Box>
+      </Typography>
 
       <Button color="secondary" variant="contained" size="large">
         Stay in Touch!
