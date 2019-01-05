@@ -25,11 +25,26 @@ const styles = {
 
 const SocialBtns = () =>
   [
-    { className: "fab fa-twitter-square", link: "" },
-    { className: "fab fa-facebook", link: "" },
-    { className: "fab fa-linkedin", link: "" }
-  ].map(({ className }, i) => (
-    <IconButton key={i} color="inherit">
+    {
+      className: "fab fa-twitter-square",
+      link: "https://twitter.com/Communitiia"
+    },
+    {
+      className: "fab fa-linkedin",
+      link: "https://www.linkedin.com/company/communitii/"
+    },
+    {
+      className: "fab fa-instagram",
+      link: "https://www.instagram.com/communitiiapp/"
+    }
+  ].map(({ className, link }, i) => (
+    <IconButton
+      href={link}
+      component="a"
+      target="__blank"
+      key={i}
+      color="inherit"
+    >
       <Icon className={className} />
     </IconButton>
   ))
