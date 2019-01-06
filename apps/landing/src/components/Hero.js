@@ -31,11 +31,10 @@ const styles = theme => ({
 })
 
 const Hero = ({ classes }) => (
-  <Box className={classes.background}>
+  <Box className={classes.background} component="section">
     <img style={{ display: "none" }} src={heroBgImg} alt="" />
 
     <Box
-      component="section"
       className={classes.root}
       display="flex"
       alignItems="center"
@@ -50,7 +49,7 @@ const Hero = ({ classes }) => (
       >
         <Box
           fontSize={{ xs: 35, md: 45, lg: 55 }}
-          mx={{ xs: 5, sm: 15, md: 20, lg: 30 }}
+          mx={{ xs: 1, sm: 15, md: 20, lg: 30 }}
           fontWeight={700}
         >
           The Game of Life is better Together!
@@ -58,7 +57,7 @@ const Hero = ({ classes }) => (
 
         <Box
           fontSize={{ xs: 18, md: 22, lg: 25 }}
-          mx={{ xs: 5, sm: 15, md: 20, lg: 30 }}
+          mx={{ xs: 1, sm: 15, md: 20, lg: 30 }}
           my={{ xs: 5, sm: 10, md: 15 }}
           fontWeight={500}
         >
