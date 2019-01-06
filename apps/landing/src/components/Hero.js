@@ -17,8 +17,8 @@ const styles = theme => ({
       minHeight: 500,
       maxHeight: 1300
     },
-    [theme.breakpoints.down("sm")]: {
-      height: "60vh"
+    [theme.breakpoints.down("xs")]: {
+      height: "90vh"
     }
   },
   background: {
@@ -49,7 +49,7 @@ const Hero = ({ classes }) => (
         component="div"
       >
         <Box
-          fontSize={{ xs: 35, md: 45 }}
+          fontSize={{ xs: 35, md: 45, lg: 55 }}
           mx={{ xs: 5, sm: 15, md: 20, lg: 30 }}
           fontWeight={700}
         >
@@ -57,7 +57,7 @@ const Hero = ({ classes }) => (
         </Box>
 
         <Box
-          fontSize={{ xs: 18, md: 22 }}
+          fontSize={{ xs: 18, md: 22, lg: 25 }}
           mx={{ xs: 5, sm: 15, md: 20, lg: 30 }}
           my={{ xs: 5, sm: 10, md: 15 }}
           fontWeight={500}
