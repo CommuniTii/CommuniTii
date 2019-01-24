@@ -52,13 +52,13 @@ const Hero = ({ classes }) => (
           mx={{ xs: 1, sm: 15, md: 20, lg: 30 }}
           fontWeight={700}
         >
-          The Game of Life is better Together!
+          The Game of Life.
         </Box>
 
         <Box
           fontSize={{ xs: 18, md: 22, lg: 25 }}
           mx={{ xs: 1, sm: 15, md: 20, lg: 30 }}
-          my={{ xs: 5, sm: 10, md: 15 }}
+          my={{ xs: 5, sm: 8, md: 10 }}
           fontWeight={500}
         >
           CommuniTii is a gamified social platform that enhances and encourages
