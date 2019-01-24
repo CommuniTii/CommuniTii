@@ -60,7 +60,7 @@ const TopBar = ({ classes }) => (
       <Box display="flex" className={classes.grow}>
         <img src={logoImg} alt="CommuniTii logo" className={classes.logo} />
         <Typography variant="h6" color="inherit">
-          CommuniTii
+          <Box fontWeight={700}>CommuniTii</Box>
         </Typography>
       </Box>
 
