@@ -3,6 +3,7 @@ import { object } from "prop-types"
 import { Typography, Button } from "@material-ui/core"
 import { unstable_Box as Box } from "@material-ui/core/Box"
 import { withStyles } from "@material-ui/core/styles"
+import AnchorLink from "react-anchor-link-smooth-scroll"
 import heroBgImg from "../images/heroBgImg.png"
 
 // const backgroundImage =
@@ -67,7 +68,13 @@ const Hero = ({ classes }) => (
         </Box>
       </Typography>
 
-      <Button color="secondary" variant="contained" size="large">
+      <Button
+        color="secondary"
+        variant="contained"
+        size="large"
+        component={AnchorLink}
+        href="#emailForm"
+      >
         Stay in Touch!
       </Button>
     </Box>
