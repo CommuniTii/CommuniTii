@@ -53,7 +53,7 @@ const Hero = ({ classes }) => (
           mx={{ xs: 1, sm: 15, md: 20, lg: 30 }}
           fontWeight={700}
         >
-          The Game of Life.
+          The game of life.
         </Box>
 
         <Box
