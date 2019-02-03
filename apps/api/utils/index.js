@@ -5,11 +5,11 @@ const extractToken = ({ authorization }) =>
     ? authorization.substring(7, authorization.length)
     : null
 
-export const getUser = async ({ req: { headers } }, { users }) => {
+export const getUser = async ({ headers }, { users: { findById } }) => {
   const token = extractToken(headers)
   if (token) {
     const { id } = await verify(token, process.env.JWT_SECRET)
-    const user = await users.findById(id)
+    const user = await findById(id)
     if (user) return user
   }
   return null

@@ -18,7 +18,7 @@ module.exports = {
     // allow loading .env files
     // TODO: allow loading different .env files based on env
     config.plugins.push(new Dotenv())
-    // console.log(config.plugins)
+
     return config
   }
 }
