@@ -4,8 +4,11 @@ import purple from "@material-ui/core/colors/purple"
 import green from "@material-ui/core/colors/green"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { install } from "@material-ui/styles"
+import { Provider as ReduxProvider } from "react-redux"
 
 import "typeface-roboto"
+
+import initStore from "./initStore"
 
 install()
 // A theme with custom primary and secondary color.
@@ -25,11 +28,13 @@ function withRoot<P>(Component: React.ComponentType<P>) {
     // MuiThemeProvider makes the theme available down the React tree
     // thanks to React context.
     return (
-      <MuiThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...props} />
-      </MuiThemeProvider>
+      <ReduxProvider store={initStore({})}>
+        <MuiThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Component {...props} />
+        </MuiThemeProvider>
+      </ReduxProvider>
     )
   }
 
